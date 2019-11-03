@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include supplier_management *.css
+recursive-include supplier_management *.csv
+recursive-include supplier_management *.html
+recursive-include supplier_management *.ico
+recursive-include supplier_management *.js
+recursive-include supplier_management *.json
+recursive-include supplier_management *.md
+recursive-include supplier_management *.png
+recursive-include supplier_management *.py
+recursive-include supplier_management *.svg
+recursive-include supplier_management *.txt
+recursive-exclude supplier_management *.pyc
