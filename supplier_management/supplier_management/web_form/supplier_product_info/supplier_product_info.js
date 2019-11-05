@@ -5,6 +5,6 @@ frappe.ready(function() {
 		frappe.web_form.set_value('supplier',supplier);
 		// $('input[data-fieldname="supplier"]').val('Walmart')
 		frappe.web_form.set_field_property('supplier', 'read_only', 1);
-	}, 500);
+	}, 1000);
 
 })
