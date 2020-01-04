@@ -15,11 +15,11 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/supplier_management/css/supplier_management.css"
+# app_include_css = ["/assets/supplier_management/css/catalysts88_081223d2.css"] 
 # app_include_js = "/assets/supplier_management/js/supplier_management.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/supplier_management/css/supplier_management.css"
+web_include_css =  ["/assets/css/catalysts88_081223d2.css"] 
 # web_include_js = "/assets/supplier_management/js/supplier_management.js"
 
 # include js in page

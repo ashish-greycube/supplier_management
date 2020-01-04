@@ -1,5 +1,5 @@
 {% extends "templates/web.html" %}
-
+<!-- no-breadcrumbs -->
 {% block header %}<h1>{{ name }}</h1>{% endblock %}
 
 {% block page_content %}
@@ -14,10 +14,8 @@
 		{% endif %}
 	</div>
 	<div>
-		{% set products_as_list = 0%}
 		{% if items %}
-
-		<div class="row" >
+		<div id="search-list" {% if not products_as_list -%} class="row" {%- endif %}>
 			{% for i in range(0, page_length) %}
 				{% if items[i] %}
 					{{ items[i] }}
