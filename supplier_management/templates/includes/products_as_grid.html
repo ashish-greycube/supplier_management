@@ -1,0 +1,39 @@
+{% macro product_image_square(website_image, css_class="") %}
+{% if website_image -%}
+	<meta itemprop="image" content="{{ frappe.utils.quoted(website_image) | abs_url }}"></meta>
+{%- endif %}
+<div class="product-image product-image-square
+	{% if not website_image -%} 44 missing-image {%- endif %} {{ css_class }}"
+	{% if website_image -%} 
+	style="background-image: url('{{ frappe.utils.quoted(website_image) | abs_url }}');"
+	{%- endif %}>
+</div>
+{% endmacro %}
+
+<a class="product-link" href="{{ route|abs_url }}">
+	<!-- VR_check : it doesn't break into 3 images  -->
+	<div class="col-sm-4 col-xs-4 product-image-wrapper">
+		<div class="product-image-img">
+			<!-- VR_check : some how below code doesn't render image -->
+			{{ product_image_square(thumbnail or website_image or image) }}
+			<!--  VR_check : img class code is able to render image -->
+			<!-- <img class="product-image product-image-square" src="{{ website_image or image or 'no-image.jpg' }}" alt="{{ item_name }}"> -->
+			<div class="product-text" itemprop="name">{{ item_name or name }}</div>
+			{% if price_sales_uom %}
+				<div>{{ price_sales_uom }}</div>
+				<div style='font-size: small; margin-bottom: 10px;'>({{ price_stock_uom }} / {{ stock_uom }})</div>
+			{% else %}
+				<div>&nbsp</div>
+				<div style='font-size: small; margin-bottom: 10px;'>&nbsp</div>
+			{% endif %}
+
+			{% if show_availability_status %}
+				{% if in_stock or not is_stock_item %}
+					<div style='color: green'> <i class='fa fa-check'></i> {{ _("In stock") }}</div>
+				{% else %}
+					<div style='color: red'> <i class='fa fa-close'></i> {{ _("Not in stock") }}</div>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+</a>
