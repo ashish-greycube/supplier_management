@@ -22,7 +22,7 @@ def get_context(context):
 	if start < 0:
 		start = 0
 	context.update({
-		"items": get_product_list_for_group(product_group ='Services', start=0,
+		"items": get_product_list_for_group(product_group ='Services', start=start,
 			limit=context.page_length  + 1, search=frappe.form_dict.get("search")),
 		"parents": 'All Item Groups',
 		"title": 'Services',
