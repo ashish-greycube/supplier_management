@@ -6,13 +6,13 @@
 <div class="product-image product-image-square
 	{% if not website_image -%} missing-image {%- endif %} {{ css_class }}"
 	{% if website_image -%} 
-	style="width: 300px;height:300px ;background-image: url('{{ frappe.utils.quoted(website_image) | abs_url }}');"
+	style="background-image: url('{{ frappe.utils.quoted(website_image) | abs_url }}');"
 	{%- endif %}>
 </div>
 {% endmacro %}
 
-<a class="product-link" href="{{ route|abs_url }}">
-	<div class="col-sm-4 col-xs-4 product-image-wrapper">
+<a class="product-link col-sm-4 col-xs-4 " href="{{ route|abs_url }}">
+	<div class="product-image-wrapper">
 		<div class="product-image-img">
 			{{ product_image_square(thumbnail or website_image or image) }}
 			<div class="product-text" itemprop="name">{{ item_name or name }}</div>

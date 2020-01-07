@@ -1,6 +1,11 @@
 {% extends "templates/web.html" %}
 <!-- no-breadcrumbs -->
-{% block header %}<h1>{{ title }}</h1>{% endblock %}
+{% block header %}
+<div class="input-group search-group input-group-sm">
+	<input type="search" class="form-control" placeholder="{{_('Search')}}" aria-label="{{_('Product Search')}}"
+				aria-describedby="product-search" value="{{ frappe.form_dict.search or '' }}">
+</div>
+<h1>{{ title }}</h1>{% endblock %}
 
 {% block page_content %}
 
