@@ -4,10 +4,11 @@
 <div class="input-group search-group input-group-sm">
 	<input type="search" class="form-control" placeholder="{{_('Search')}}" aria-label="{{_('Product Search')}}"
 				aria-describedby="product-search" value="{{ frappe.form_dict.search or '' }}">
+				{% if frappe.form_dict.start or frappe.form_dict.field_filters or frappe.form_dict.attribute_filters or frappe.form_dict.search %}
+				<a class="mb-3 d-inline-block" href="/offering/offering">{{ _('Clear Search') }}</a>
+				{% endif  %}				
 </div>
-{% if frappe.form_dict.start or frappe.form_dict.field_filters or frappe.form_dict.attribute_filters or frappe.form_dict.search %}
-<a class="mb-3 d-inline-block" href="/offering/offering">{{ _('Clear Search') }}</a>
-{% endif  %}
+
 <h1>{{ title }}</h1>{% endblock %}
 
 {% block page_content %}
