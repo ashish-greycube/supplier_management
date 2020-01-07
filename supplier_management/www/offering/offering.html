@@ -1,20 +1,14 @@
 {% extends "templates/web.html" %}
 <!-- no-breadcrumbs -->
 {% block header %}
-
+<div class="input-group search-group input-group-sm">
+	<input type="search" class="form-control" placeholder="{{_('Search')}}" aria-label="{{_('Product Search')}}"
+				aria-describedby="product-search" value="{{ frappe.form_dict.search or '' }}">
+</div>
 <h1>{{ title }}</h1>{% endblock %}
 
 {% block page_content %}
-<div class="row">
-	<div class="col-8">
-		<div class="input-group input-group-sm mb-3">
-			<input type="search" class="form-control" placeholder="{{_('Search')}}"
-				aria-label="{{_('Product Search')}}" aria-describedby="product-search"
-				value="{{ frappe.form_dict.search or '' }}"
-			>
-		</div>
-	</div>
-</div>
+
 <div class="item-group-content" itemscope itemtype="http://schema.org/Product">
 	<div>
 		{% if slideshow %}<!-- slideshow -->
@@ -42,8 +36,11 @@
 			{% endif %}
 		</div>
 		{% else %}
-			<div class="text-muted">{{ _("No items listed") }}.</div>
+			<div class="text-muted">{{ _("No items found") }}.</div>
 		{% endif %}
+		{% if frappe.form_dict.start or frappe.form_dict.field_filters or frappe.form_dict.attribute_filters or frappe.form_dict.search %}
+		<a class="mb-3 d-inline-block" href="/offering/offering">{{ _('Clear Search') }}</a>
+		{% endif  %}		
 	</div>
 </div>
 {% endblock %}
