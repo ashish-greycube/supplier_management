@@ -14,7 +14,7 @@ from erpnext.utilities.product import get_qty_in_stock
 from six.moves.urllib.parse import quote
 
 def get_context(context):
-	context.show_search=True
+	context.show_search=False
 	context.page_length = cint(frappe.db.get_single_value('Products Settings', 'products_per_page')) or 6
 	context.search_link = '/product_search'
 
